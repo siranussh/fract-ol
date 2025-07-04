@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   init_fractal.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sihakoby <sihakoby@student.42yerevan.am    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/04 18:50:58 by sihakoby          #+#    #+#             */
+/*   Updated: 2025/07/04 20:06:05 by sihakoby         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fractol.h"
 
 void	start_init(t_data *fract)
@@ -21,21 +33,23 @@ void	start_init(t_data *fract)
 	fract->color = 0;
 }
 
-void    layout(t_data *fract)
+void	layout(t_data *fract)
 {
 	if (fract->set == JULIA)
 	{
 		fract->min_real = -2.0;
 		fract->max_real = 2.0;
 		fract->min_imaginary = -2.0;
-		fract->max_imaginary = fract->min_imaginary + (fract->max_real - fract->min_real) * HEIGHT / WIDTH;
+		fract->max_imaginary = fract->min_imaginary + (fract->max_real
+				- fract->min_real) * HEIGHT / WIDTH;
 	}
 	else
 	{
 		fract->min_real = -2.0;
 		fract->max_real = 1.0;
 		fract->max_imaginary = -1.5;
-		fract->min_imaginary = fract->max_imaginary + (fract->max_real - fract->min_real) * HEIGHT / WIDTH;
+		fract->min_imaginary = fract->max_imaginary + (fract->max_real
+				- fract->min_real) * HEIGHT / WIDTH;
 	}
 }
 
@@ -48,10 +62,11 @@ static void	draw_img(t_data *fract)
 
 	fract->palette = ft_calloc((MAX_ITERATIONS + 1), sizeof(int));
 	if (!(fract->palette))
-		safe_exit_free(error_msg("error initializing color scheme.", "", 1), fract);
+		exit_free(error_msg("error initializing color scheme.", "", 1),
+			fract);
 	fract->img = mlx_new_image(fract->mlx, WIDTH, HEIGHT);
 	if (!(fract->img))
-		safe_exit_free(error_msg("image creation error.", "", 1), fract);
+		exit_free(error_msg("image creation error.", "", 1), fract);
 	buf = mlx_get_data_addr(fract->img, &pixel_bits, &line_bytes, &endian);
 	fract->buf = buf;
 }
@@ -71,10 +86,12 @@ void	init(t_data *fract)
 {
 	fract->mlx = mlx_init();
 	if (!fract->mlx)
-		clean_exit(msg("MLX: error connecting to mlx.", "", 1), fract);
+		exit_free(error_msg("MLX: error connecting to mlx.", "", 1),
+			fract);
 	fract->win = mlx_new_window(fract->mlx, WIDTH, HEIGHT, "Fractol");
 	if (!fract->win)
-		clean_exit(msg("MLX: error creating window.", "", 1), fract);
+		exit_free(error_msg("MLX: error creating window.", "", 1),
+			fract);
 	fract->sx = 2.0;
 	fract->rx = 0.5;
 	fract->fx = 1.0;

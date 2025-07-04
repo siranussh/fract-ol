@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sihakoby <sihakoby@student.42yerevan.am    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/04 19:00:43 by sihakoby          #+#    #+#             */
+/*   Updated: 2025/07/04 19:59:32 by sihakoby         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fractol.h"
 
-void	safe_exit_free(int exit_code, t_data *fract)
+void	exit_free(int exit_code, t_data *fract)
 {
 	if (!fract)
 		exit(exit_code);
@@ -29,7 +41,7 @@ int	error_msg(char *str1, char *str2, int errno)
 
 int	close_program(t_data *mlx)
 {
-	safe_exit_free(0, mlx);
+	exit_free(0, mlx);
 	return (0);
 }
 

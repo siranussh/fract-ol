@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   color_palette_3rd.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sihakoby <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/04 18:29:55 by sihakoby          #+#    #+#             */
+/*   Updated: 2025/07/04 18:30:33 by sihakoby         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fractol.h"
 
 void	set_color_opposites(t_data *fract, int color)
@@ -47,7 +59,6 @@ void	set_color_contrasted(t_data *fract, int color)
 	fract->palette[MAX_ITERATIONS - 1] = 0;
 }
 
-
 void	set_color_graphic(t_data *fract, int color)
 {
 	int	i;
@@ -76,4 +87,3 @@ void	set_color_graphic(t_data *fract, int color)
 	}
 	fract->palette[MAX_ITERATIONS - 1] = 0;
 }
-

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   mandelbrot.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sihakoby <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/04 18:29:02 by sihakoby          #+#    #+#             */
+/*   Updated: 2025/07/04 18:29:38 by sihakoby         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fractol.h"
 
 int	mandelbrot(double c_real, double c_imaginary)
@@ -12,7 +24,7 @@ int	mandelbrot(double c_real, double c_imaginary)
 	n = 0;
 	while (n < MAX_ITERATIONS)
 	{
-		if ((z_real * z_real+ z_imaginary * z_imaginary) > 4.0)
+		if ((z_real * z_real + z_imaginary * z_imaginary) > 4.0)
 			break ;
 		tmp = 2 * z_real * z_imaginary + c_imaginary;
 		z_real = z_real * z_real - z_imaginary * z_imaginary + c_real;

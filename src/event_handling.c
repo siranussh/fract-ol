@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   event_handling.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sihakoby <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/04 18:25:46 by sihakoby          #+#    #+#             */
+/*   Updated: 2025/07/04 18:28:42 by sihakoby         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fractol.h"
 
 static void	zoom(t_data *fract, double zoom)
@@ -7,9 +19,11 @@ static void	zoom(t_data *fract, double zoom)
 
 	center_real = fract->min_real - fract->max_real;
 	center_imaginary = fract->max_imaginary - fract->min_imaginary;
-	fract->max_real = fract->max_real + (center_real- zoom * center_real) / 2;
+	fract->max_real = fract->max_real + (center_real - zoom * center_real)
+		/ 2;
 	fract->min_real = fract->max_real + zoom * center_real;
-	fract->min_imaginary = fract->min_imaginary + (center_imaginary - zoom * center_imaginary) / 2;
+	fract->min_imaginary = fract->min_imaginary + (center_imaginary - zoom
+			* center_imaginary) / 2;
 	fract->max_imaginary = fract->min_imaginary + zoom * center_imaginary;
 }
 

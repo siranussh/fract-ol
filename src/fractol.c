@@ -1,11 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fractol.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sihakoby <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/04 18:30:46 by sihakoby          #+#    #+#             */
+/*   Updated: 2025/07/04 18:35:53 by sihakoby         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fractol.h"
 
-static int type_cmp(char *av, char *str, char c, char n)
+static int	type_cmp(char *av, char *str, char c, char n)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while (av[i])
+	i = 0;
+	while (av[i])
 	{
 		av[i] = ft_tolower(av[i]);
 		i++;
@@ -16,7 +28,6 @@ static int type_cmp(char *av, char *str, char c, char n)
 		return (1);
 	return (0);
 }
-
 
 static void	get_set(t_data *fract, char **av)
 {
@@ -68,12 +79,14 @@ int	main(int ac, char **av)
 	t_data	fract;
 
 	if (ac < 2)
-		help_msg(&fract);
+	{
+		ft_putstr_fd("Wrong number of args!\nUsage: ./fractol <type>", 1);
+		return (1);
+	}
 	start_init(&fract);
 	handle_args(&fract, ac, av);
 	init(&fract);
 	draw_fractal(&fract);
-	print_controls();
 	mlx_hook(fract.win, EVENT_CLOSE_BTN, 0, close_program, &fract);
 	mlx_key_hook(fract.win, key_event, &fract);
 	mlx_mouse_hook(fract.win, mouse_event, &fract);

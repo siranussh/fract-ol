@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   color_pallete_1st.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sihakoby <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/04 18:36:45 by sihakoby          #+#    #+#             */
+/*   Updated: 2025/07/04 18:38:24 by sihakoby         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fractol.h"
 
 static int	interpolate(int startcolor, int endcolor, double fraction)
@@ -14,7 +26,8 @@ static int	interpolate(int startcolor, int endcolor, double fraction)
 	start_rgb[0] = (end_rgb[0] - start_rgb[0]) * fraction + start_rgb[0];
 	start_rgb[1] = (end_rgb[1] - start_rgb[1]) * fraction + start_rgb[1];
 	start_rgb[2] = (end_rgb[2] - start_rgb[2]) * fraction + start_rgb[2];
-	return (0xFF << 24 | start_rgb[0] << 16 | start_rgb[1] << 8 | start_rgb[2]);
+	return (0xFF << 24 | start_rgb[0] << 16 | start_rgb[1] << 8
+		| start_rgb[2]);
 }
 
 void	set_color_mono(t_data *fract, int color)
@@ -59,7 +72,8 @@ void	set_color_multiple(t_data *fract, int colors[4], int n)
 		while ((i + j) < MAX_ITERATIONS && j < (MAX_ITERATIONS / (n - 1)))
 		{
 			fraction = (double)j / (MAX_ITERATIONS / (n - 1));
-			fract->palette[i + j] = interpolate(colors[x], colors[x + 1], fraction);
+			fract->palette[i + j] = interpolate(colors[x], colors[x + 1],
+					fraction);
 			j++;
 		}
 		x++;

@@ -85,10 +85,9 @@ void	layout(t_data *fract);
 void	get_color(t_data *fract, int ac, char **av);
 double	ft_atof(char *str);
 int		close_program(t_data *mlx);
-void	safe_exit_free(int exit_code, t_data *fract);
+void	exit_free(int exit_code, t_data *fract);
 int		error_msg(char *str1, char *str2, int errno);
 void	help_msg(t_data *fract);
-void	print_controls(void);
 int     ft_isspace(int c);
 int     ft_ishexdigit(int c);
 

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parsing_args.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sihakoby <sihakoby@student.42yerevan.am    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/04 18:36:09 by sihakoby          #+#    #+#             */
+/*   Updated: 2025/07/04 20:16:50 by sihakoby         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fractol.h"
 
 static int	skip_space_plus_x(char *color)
@@ -48,7 +60,7 @@ void	get_color(t_data *f, int ac, char **av)
 	else if (f->set != JULIA && ac == 3)
 		f->color = parse_hex_color(f, av[2]);
 	if (ac == 2 || (f->set == JULIA && ac == 4))
-		f->color = 0x9966FF;
+		f->color = 0xFF5733;
 }
 
 static int	skip_space_sign(char *str, int *is_neg)
