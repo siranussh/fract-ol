@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sihakoby <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: sihakoby <sihakoby@student.42yerevan.am    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 18:30:46 by sihakoby          #+#    #+#             */
-/*   Updated: 2025/07/04 18:35:53 by sihakoby         ###   ########.fr       */
+/*   Updated: 2025/07/05 17:48:27 by sihakoby         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,6 @@ static void	get_julia_starting_values(t_data *fract, int ac, char **av)
 		return ;
 	}
 	if (ac == 3)
-		help_msg(fract);
-	if (!ft_strchr(av[2], '.'))
-		help_msg(fract);
-	if (!ft_strchr(av[3], '.'))
 		help_msg(fract);
 	fract->k_real = ft_atof(av[2]);
 	fract->k_imaginary = ft_atof(av[3]);

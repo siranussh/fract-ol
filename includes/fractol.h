@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fractol.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sihakoby <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/05 17:45:39 by sihakoby          #+#    #+#             */
+/*   Updated: 2025/07/05 17:45:59 by sihakoby         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
@@ -38,7 +50,6 @@
 # define MANDELBROT 1
 # define JULIA 2
 # define BURNING_SHIP 3
-# define TRICORN 4
 
 typedef struct s_data
 {
@@ -88,7 +99,7 @@ int		close_program(t_data *mlx);
 void	exit_free(int exit_code, t_data *fract);
 int		error_msg(char *str1, char *str2, int errno);
 void	help_msg(t_data *fract);
-int     ft_isspace(int c);
-int     ft_ishexdigit(int c);
+int		ft_isspace(int c);
+int		ft_ishexdigit(int c);
 
 #endif

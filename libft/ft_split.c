@@ -6,7 +6,7 @@
 /*   By: sihakoby <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 10:55:14 by sihakoby          #+#    #+#             */
-/*   Updated: 2025/02/09 11:49:10 by sihakoby         ###   ########.fr       */
+/*   Updated: 2025/07/05 17:47:10 by sihakoby         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ static size_t	count_words(char const *s, char delimeter)
 		{
 			if (!find_word)
 			{
-			count++;
-			find_word = 1;
+				count++;
+				find_word = 1;
 			}
 			s++;
 		}
